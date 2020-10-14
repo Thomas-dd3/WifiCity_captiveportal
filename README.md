@@ -6,13 +6,13 @@ The main goal of this repository is to offer a solution to connect automaticaly 
 
 
 ****************************************************************************
-I have used [this linux script](https://gist.github.com/rnbguy/6f574caa6b3535162a20750cb1777a09) as a base of my work. Thanks !
+I have used [this linux script](https://gist.github.com/rnbguy/6f574caa6b3535162a20750cb1777a09) as a base of my work. Thanks [Ranadeep Biswas](https://gist.github.com/rnbguy) !
 I haven't change the script for linux (it works perfectly). I just add some documentation.
 Then I rewrote the script to work on windows.
 ****************************************************************************
 
 
-## prerequisite
+## Prerequisite
 
 Nothing, currently worked well with Windows and Linux.
 
@@ -56,13 +56,13 @@ Once the service is active, scripts can be added to the `/etc/NetworkManager/dis
 ```bash=
 cd /etc/NetworkManager/dispatcher.d
 #copy your script to that directory
-cp <sourcepath> .
+cp /home/<user>/<...>/login_wifi.sh ./10-login_wifi.sh
 ```
 
 Scripts must be owned by root, otherwise the dispatcher will not execute them. For added security, set group ownership to root as well: 
 ```bash=
-chown root:root /etc/NetworkManager/dispatcher.d/10-yourscript.sh
-chmod 755 /etc/NetworkManager/dispatcher.d/10-yourscript.sh
+chown root:root /etc/NetworkManager/dispatcher.d/10-login_wifi.sh
+chmod 755 /etc/NetworkManager/dispatcher.d/10-login_wifi.sh
 ```
 
 Then reboot and it will automatically execute your script while connected to a network.
@@ -74,7 +74,7 @@ The linux script should work for Mac as well. Nevertheless no work have been don
 
 ## On Android
 
-Execute the script with [`Termux`](https://play.google.com/store/apps/details?id=com.termux&fbclid=IwAR0VU0hSW3z2qZTTrm0dH72awzus8Sy-hZXMOPSG6mdUe5M2cq5zRYW0Q8o) and use this [widget](https://play.google.com/store/apps/details?id=com.termux.widget&fbclid=IwAR0rr7g7ghvPZ8juKe1ses1xXTzq50hbIcUDUcbozzb87_pKllknFPW8TBQ) to execute it from home screen.
+Execute the linux script with [`Termux`](https://play.google.com/store/apps/details?id=com.termux&fbclid=IwAR0VU0hSW3z2qZTTrm0dH72awzus8Sy-hZXMOPSG6mdUe5M2cq5zRYW0Q8o) and use this [widget](https://play.google.com/store/apps/details?id=com.termux.widget&fbclid=IwAR0rr7g7ghvPZ8juKe1ses1xXTzq50hbIcUDUcbozzb87_pKllknFPW8TBQ) to execute it from home screen.
 
 ## On IOS
 
