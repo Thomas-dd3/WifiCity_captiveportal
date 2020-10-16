@@ -72,10 +72,10 @@ Then reboot and it will automatically execute your script while connected to a n
 
 The linux script should work for Mac as well. Nevertheless no work have been done to execute the script automatically while connected to a network. One idea is to use [ControlPlane](https://www.controlplaneapp.com/) to triger connexion to a wifi and then automatically execute the script.
 
-## On Android
+### Android
 
 Execute the linux script with [`Termux`](https://play.google.com/store/apps/details?id=com.termux&fbclid=IwAR0VU0hSW3z2qZTTrm0dH72awzus8Sy-hZXMOPSG6mdUe5M2cq5zRYW0Q8o) and use this [widget](https://play.google.com/store/apps/details?id=com.termux.widget&fbclid=IwAR0rr7g7ghvPZ8juKe1ses1xXTzq50hbIcUDUcbozzb87_pKllknFPW8TBQ) to execute it from home screen.
 
-## On IOS
+### On IOS
 
 One idea is to use the app ***Shortcuts*** but with ios 12 it doesn't seem to be possible but it might be with most recent version of ios.
