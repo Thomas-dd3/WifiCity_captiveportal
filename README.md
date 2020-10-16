@@ -14,7 +14,7 @@ Then I rewrote the script to work on windows.
 
 ## Prerequisite
 
-Nothing, currently worked well with Windows and Linux.
+Nothing, no particular software is required.
 
 ## How to use
 
