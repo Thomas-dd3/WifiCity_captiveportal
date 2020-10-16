@@ -76,6 +76,6 @@ The linux script should work for Mac as well. Nevertheless no work have been don
 
 Execute the linux script with [`Termux`](https://play.google.com/store/apps/details?id=com.termux&fbclid=IwAR0VU0hSW3z2qZTTrm0dH72awzus8Sy-hZXMOPSG6mdUe5M2cq5zRYW0Q8o) and use this [widget](https://play.google.com/store/apps/details?id=com.termux.widget&fbclid=IwAR0rr7g7ghvPZ8juKe1ses1xXTzq50hbIcUDUcbozzb87_pKllknFPW8TBQ) to execute it from home screen.
 
-### On IOS
+### IOS
 
 One idea is to use the app ***Shortcuts*** but with ios 12 it doesn't seem to be possible but it might be with most recent version of ios.
