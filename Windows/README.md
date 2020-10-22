@@ -16,7 +16,7 @@ When you use `WifiCity_win.bat` it does 3 things:
 Then, the script does some web request to authenticate yourself on the server.  
 
 
-**Sum up schema**
+**Sum up schema**  
 `Task Scheduler` => `login_WifiCity.vbs` => `login_WifiCity.bat` => **Connected**  
 
 
@@ -27,9 +27,9 @@ This solution improved my user experience after I used the `WifiCity_win.bat` pr
 
 *******************************************************
 
-Unfortunately, with this change, it stopped login me automaticaly after one week of usage and I don't know why.
-Nevertheless, you can give it a try, indeed, you can undo this litle change at anytime.
-If the initial config satisfies you, just go away :)
+*Unfortunately, with this change, it stopped login me automaticaly after one week of usage and I don't know why.  
+Nevertheless, you can give it a try, indeed, you can undo this litle change at anytime.  
+If the initial config satisfies you, just go away :)*
 
 *******************************************************
 
