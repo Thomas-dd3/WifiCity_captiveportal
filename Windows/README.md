@@ -17,4 +17,30 @@ Then, the script does some web request to authenticate yourself on the server.
 
 
 **Sum up schema**
-`Task Scheduler` => `login_WifiCity.vbs` => `login_WifiCity.bat` => **Connected**
+`Task Scheduler` => `login_WifiCity.vbs` => `login_WifiCity.bat` => **Connected**  
+
+
+
+## Ideas of improvement
+
+This solution improved my user experience after I used the `WifiCity_win.bat` program, I was connected faster to the WifiCity network.
+
+*******************************************************
+
+Unfortunately, with this change, it stopped login me automaticaly after one week of usage and I don't know why.
+Nevertheless, you can give it a try, indeed, you can undo this litle change at anytime.
+If the initial config satisfies you, just go away :)
+
+*******************************************************
+
+* Open the task scheduler
+
+![](https://i.imgur.com/9qcfFtK.png)
+
+* Click on `Task Scheduler Library`, find `WifiCityAutomaticConnection`, double click on it
+
+![](https://i.imgur.com/D8I5GJu.png)
+
+* Change `Run only when user is logged on` by `Run whether user is logged on or not` and (optional) click on `Do not store password`
+
+![](https://i.imgur.com/kU9qnVW.png)
