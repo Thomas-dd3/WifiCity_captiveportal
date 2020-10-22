@@ -4,12 +4,17 @@
 
 Follow the explaination at the repository root readme.
 
-> Just download `WifiCity_win_v1.0.zip`, unzip, execute `WifiCity_win.bat` and follow the instructions.
+> Just download `WifiCity_win_v1.1.zip`, unzip, execute `WifiCity_win.bat` and follow the instructions.
 
 ## How does it work
 
-When you use `WifiCity_win.bat` it does 2 things:
-1. It will write a script equivalent to `login_wifi.bat` in `C:\Windows\System32` folder containing your WifiCity credentials.
-2. It will create a windows task scheduler that will launch automatically the script every time the computer connect to WifiCity network (and only this network).
+When you use `WifiCity_win.bat` it does 3 things:
+1. It will write a script equivalent to `login_WifiCity.bat` in `C:\Windows\System32` folder containing your WifiCity credentials.
+2. It will write a script equivalent to `login_WifiCity.vbs` in `C:\Windows\System32` folder. This *.vbs* script is used to execute the *.bat* script without opening a window so that it is executing in background (without user noticing).
+3. It will create a windows task scheduler that will launch automatically the `login_WifiCity.vbs` script every time the computer connect to WifiCity network (and only this network). The script run only when the user is loged in on his windows session.
 
-Then, the script does some web request to authenticate yourself on the server.
+Then, the script does some web request to authenticate yourself on the server.  
+
+
+**Sum up schema**
+`Task Scheduler` => `login_WifiCity.vbs` => `login_WifiCity.bat` => **Connected**

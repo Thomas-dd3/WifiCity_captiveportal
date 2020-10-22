@@ -49,11 +49,16 @@ if %action% EQU 1 (
     set /P wificity_login="Login = "
     set /P wificity_password="Password = "
     CALL :data >C:\Windows\System32\login_WifiCity.bat
+    CALL :data2 >C:\Windows\System32\login_WifiCity.vbs
     echo.
-    if exist C:\Windows\System32\login_WifiCity.bat (
-        echo Automatic login script successfully written
+    if exist C:\Windows\System32\login_WifiCity.vbs (
+        if exist C:\Windows\System32\login_WifiCity.bat (
+            echo Automatic login script successfully written
+        ) else (
+            echo An error occured, the script ^(login_WifiCity.bat^) was not created.
+        )
     ) else (
-        echo An error occured, the script was not created.
+        echo An error occured, the script ^(login_WifiCity.vbs^) was not created.
         echo Please check that you execute this file in Administrator mode.
     )
     :: SCHTASKS /Create /TN WifiCityAutomaticConnection /SC ONEVENT /EC Microsoft-Windows-NetworkProfile/Operational /MO "*[System[(EventID=10000)]] and *[EventData[(Data[@Name='Name']='WifiCity')]]" /TR "C:\Windows\System32\login_WifiCity.bat"
@@ -65,9 +70,13 @@ if %action% EQU 1 (
 if %action% EQU 2 (
     SCHTASKS /DELETE /TN WifiCityAutomaticConnection /F
     del C:\Windows\System32\login_WifiCity.bat
+    del C:\Windows\System32\login_WifiCity.vbs
     if exist C:\Windows\System32\login_WifiCity.bat (
-        echo An error occured, the script was not deleted.
+        echo An error occured, the script ^(login_WifiCity.bat^) was not deleted.
         echo Please check that you execute this file in Administrator mode.
+        if exist C:\Windows\System32\login_WifiCity.vbs (
+            echo An error occured, the script ^(login_WifiCity.vbs^) was not deleted.
+        )
     ) else (
         echo Automatic login script successfully removed
     )
@@ -127,3 +136,9 @@ echo:
 echo: EXIT /B 0
 EXIT /B 0
 
+:data2
+echo: Dim WinScriptHost
+echo: Set WinScriptHost = CreateObject("WScript.Shell")
+echo: WinScriptHost.Run Chr(34) ^& "C:\Windows\System32\login_WifiCity.bat" ^& Chr(34), 0
+echo: Set WinScriptHost = Nothing
+EXIT /B 0

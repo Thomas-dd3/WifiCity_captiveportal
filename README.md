@@ -20,7 +20,7 @@ Nothing, no particular software is required.
 
 ### Windows
 
-* Open the Windows folder and download `WifiCity_win_v1.0.zip`
+* Open the Windows folder and download `WifiCity_win_v1.1.zip`
 * Extract the zip file
 
 **First use:**
