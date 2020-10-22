@@ -3,7 +3,7 @@
 # https://wiki.archlinux.org/index.php/NetworkManager#Captive_portals
 
 # README : make sure these binaries are available on your distribution.
-# curl echo head cut sed
+# curl sed
 
 login_wificity() {
     # wificity authentication server
@@ -23,14 +23,14 @@ login_wificity() {
     gen204_resp=$(curl -si "$gen204")
 
     # parsing http status code
-    status=$(echo "$gen204_resp" | head -n1 | cut -d' ' -f2)
+    status=$(sed -n '1s/^[^\s]\+ \([0-9]\+\)\(\s.*\)\?$/\1/p' <<< "$gen204_resp")
 
     # if http status code is not expected
     if [ "$status" != "204" ]; then
         # captive portal is detected
         # assuming wificity network
         # parsing magic code to generate the wificity authentication form
-        magic=$(echo "$gen204_resp" | sed -n 's/^Location.*?\([a-zA-Z0-9]\+\).*$/\1/p')
+        magic=$(sed -n 's/^Location.*?\([a-zA-Z0-9]\+\).*$/\1/p' <<< "$gen204_resp")
         # generate the authentication form
         curl -so /dev/null "${authserver}/fgtauth?${magic}"
         # submit credentials with magic code to wificity server for authentication
