@@ -23,7 +23,7 @@ login_wificity() {
     gen204_resp=$(curl -si "$gen204")
 
     # parsing http status code
-    status_code=$(sed -n '1s/^[^\s]* \([0-9]*\)\(\s.*\)$/\1/p' <<< "$gen204_resp")
+    status_code=$(sed -n '1s/^[^ ]* \([0-9]*\) \(.*\)$/\1/p' <<< "$gen204_resp")
 
     # if http status code is not expected
     if [ "$status_code" != "204" ]; then
