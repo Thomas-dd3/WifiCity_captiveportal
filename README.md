@@ -69,8 +69,17 @@ Then reboot and it will automatically execute your script while connected to a n
 
 
 ### Mac
+* Open the Mac folder and download `login_wifi.sh` and `me.wificity.login.plist`
+* Edit `login_wifi.sh` with your own credential, then put it somewhere safe (and don't move it afterwards), e.g. under /usr/local/bin/
+* Edit `me.wificity.login.plist` with the location where you put `login_wifi.sh`.
+* Put `me.wificity.login.plist` under ~/Library/LaunchAgents/
+* Open terminal and execute 
+```bash=
+launchctl load -w ~/Library/LaunchAgents/me.wificity.login.plist
+```
 
-The linux script should work for Mac as well. Nevertheless no work have been done to execute the script automatically while connected to a network. One idea is to use [ControlPlane](https://www.controlplaneapp.com/) to triger connexion to a wifi and then automatically execute the script.
+Then reboot and it will automatically execute your script when your network connection changes.
+
 
 ### Android
 

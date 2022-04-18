@@ -38,6 +38,20 @@ login_wificity() {
     fi
 }
 
+check_ssid() {
+	# parse ssid
+	ssid=$(sed -n 's/^Current Wi-Fi Network: \(.*\)/\1/p' <<< "$(networksetup -getairportnetwork en0)")
+
+	if [ "$ssid" == "WifiCity" ]; then
+		echo 0
+	fi
+}
+
+# quit if we're not connected to WifiCity
+if [ "$(check_ssid)" != "0" ]; then
+	exit 0
+fi
+
 # change to your correct USERNAME PASSWORD
 login_wificity USERNAME PASSWORD
 
