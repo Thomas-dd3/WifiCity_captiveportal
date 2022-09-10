@@ -9,7 +9,7 @@
 USERNAME=""
 PASSWORD=""
 
-login_citywifi() {
+login_wificity() {
     # wificity authentication server
     authserver="http://10.254.0.254:1000"
 
@@ -42,4 +42,4 @@ login_citywifi() {
     fi
 }
 
-login_citywifi $USERNAME $PASSWORD
+login_wificity $USERNAME $PASSWORD
