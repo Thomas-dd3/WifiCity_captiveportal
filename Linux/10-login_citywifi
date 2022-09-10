@@ -1,10 +1,5 @@
 #!/bin/bash
 
-# https://wiki.archlinux.org/index.php/NetworkManager#Captive_portals
-
-# README : make sure these binaries are available on your distribution.
-# curl sed
-
 # Insert here your username and password
 USERNAME=""
 PASSWORD=""
@@ -17,7 +12,7 @@ login_citywifi() {
     # can be any http address, eg. http://neverssl.com
     # but change the "$status" != "204" with correct status code
     # ref. https://github.com/NickSto/uptest/blob/master/captive-portals.md
-    gen204="http://www.google.com/gen_204"
+    gen204="http://detectportal.firefox.com/canonical.html"
 
     # wificity username password
     username=$1
@@ -42,4 +37,13 @@ login_citywifi() {
     fi
 }
 
-login_citywifi $USERNAME $PASSWORD
+# NetworkManager passes interface and status as arguments to the dispatch scripts
+interface=$1
+status=$2
+
+# test if the connection ID is right, and do this only when the interface has been activated
+if test "$CONNECTION_ID" = "WifiCity" && test "$status" = "up"; then
+	login_citywifi $USERNAME $PASSWORD
+	# Optionally insert here the commands to activate a vpn to hide your traffic from CityWifi
+    # Eg. wg-quick up wireguard-interface
+fi
