@@ -4,7 +4,7 @@
 USERNAME=""
 PASSWORD=""
 
-login_citywifi() {
+login_wificity() {
     # wificity authentication server
     authserver="http://10.254.0.254:1000"
 
@@ -43,7 +43,7 @@ status=$2
 
 # test if the connection ID is right, and do this only when the interface has been activated
 if test "$CONNECTION_ID" = "WifiCity" && test "$status" = "up"; then
-	login_citywifi $USERNAME $PASSWORD
+	login_wificity $USERNAME $PASSWORD
 	# Optionally insert here the commands to activate a vpn to hide your traffic from CityWifi
     # Eg. wg-quick up wireguard-interface
 fi
