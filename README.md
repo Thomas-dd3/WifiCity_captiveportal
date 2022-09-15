@@ -41,7 +41,8 @@ Nothing, no particular software is required.
 
 * Open the Linux folder and download `login_wifi.sh`
 * Edit the file with your own credential
-* Automate the execution of the script every time you connect to a wifi with the following
+* Automate the execution of the script every time you connect to a wifi called
+"WifiCity"
 
 NetworkManager has the ability to start services when you connect to a network and stop them when you disconnect (e.g. when using NFS, SMB and NTPd).
 
@@ -54,9 +55,8 @@ sudo systemctl start NetworkManager-dispatcher.service
 Once the service is active, scripts can be added to the `/etc/NetworkManager/dispatcher.d` directory.
 
 ```bash=
-cd /etc/NetworkManager/dispatcher.d
 #copy your script to that directory
-cp /home/<user>/<...>/login_wifi.sh ./10-login_wifi.sh
+cp ./WifiCity_captiveportal/Linux/10-login_citywifi /etc/NetworkManager/dispatcher.d/10-login_citywifi
 ```
 
 Scripts must be owned by root, otherwise the dispatcher will not execute them. For added security, set group ownership to root as well: 
